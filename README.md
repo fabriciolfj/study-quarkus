@@ -7,3 +7,7 @@ eval $(minikube -p minikube docker-env)
 ```
 mvn clean package -Dquarkus.container-image.build=true
 ```
+- Deploy em um ambiente kubernetes:
+```
+mvn clean package -Dquarkus.kubernetes.deploy=true
+```
