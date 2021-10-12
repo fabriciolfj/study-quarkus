@@ -11,3 +11,7 @@ mvn clean package -Dquarkus.container-image.build=true
 ```
 mvn clean package -Dquarkus.kubernetes.deploy=true
 ```
+- Listando os serviços expostos no minikube
+```
+ minikube service list
+```
