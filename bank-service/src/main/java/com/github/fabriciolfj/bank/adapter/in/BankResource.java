@@ -21,6 +21,12 @@ public class BankResource {
     @ConfigProperty(name = "bank.name", defaultValue = "Bank of default")
     String name;
 
+    @ConfigProperty(name = "db.username", defaultValue = "")
+    String username;
+
+    @ConfigProperty(name = "db.password", defaultValue = "")
+    String password;
+
     @ConfigProperty(name="app.mobileBanking")
     Optional<Boolean> mobileBanking;
 
@@ -34,6 +40,16 @@ public class BankResource {
     @Path("name")
     public String getName() {
         return name;
+    }
+
+    @GET
+    @Path("secrets")
+    public HashMap<String, String> getSecrets() {
+        final var map = new HashMap<String, String>();
+        map.put("username", username);
+        map.put("password", password);
+
+        return map;
     }
 
     @GET
