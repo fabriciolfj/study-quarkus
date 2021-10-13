@@ -32,3 +32,7 @@ kubectl create secret generic db-credentials \
         --from-literal=db.username=quarkus_banking \
         --from-literal=db.password=quarkus_banking
 ```
+- Deletando o deployment (caso tente repetir um deploy novamente pelo quarkus)
+```
+kubectl delete -f /target/kubernetes/minikube.yaml.
+```
