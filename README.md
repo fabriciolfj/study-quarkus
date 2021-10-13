@@ -15,3 +15,7 @@ mvn clean package -Dquarkus.kubernetes.deploy=true
 ```
  minikube service list
 ```
+- Build aplicação em bytecode native
+```
+mvn clean install -Pnative
+```
