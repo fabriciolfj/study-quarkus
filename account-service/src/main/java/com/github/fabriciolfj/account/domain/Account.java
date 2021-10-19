@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Account {
-    public Long accountNumber;
-    public Long customerNumber;
-    public String customerName;
-    public BigDecimal balance;
-    public AccountStatus accountStatus = AccountStatus.OPEN;
+    private Long accountNumber;
+    private Long customerNumber;
+    private String customerName;
+    private BigDecimal balance;
+    private AccountStatus accountStatus = AccountStatus.OPEN;
 
     public Account() {
     }
@@ -55,6 +55,10 @@ public class Account {
 
     public AccountStatus getAccountStatus() {
         return accountStatus;
+    }
+
+    public Long getCustomerNumber() {
+        return customerNumber;
     }
 
     @Override

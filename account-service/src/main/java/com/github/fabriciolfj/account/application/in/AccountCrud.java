@@ -10,7 +10,7 @@ public interface AccountCrud {
 
     Account getByNumber(final Long accountNumber);
 
-    Account create(final Account account);
+    void create(final Account account);
 
     void delete(final Long number);
 }

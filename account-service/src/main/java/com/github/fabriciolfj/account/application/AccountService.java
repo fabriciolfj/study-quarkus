@@ -1,52 +1,44 @@
 package com.github.fabriciolfj.account.application;
 
 import com.github.fabriciolfj.account.application.in.AccountCrud;
+import com.github.fabriciolfj.account.application.out.AccountFindAll;
+import com.github.fabriciolfj.account.application.out.AccountFindByNumber;
+import com.github.fabriciolfj.account.application.out.AccountSave;
 import com.github.fabriciolfj.account.domain.Account;
+import lombok.RequiredArgsConstructor;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.WebApplicationException;
-import java.math.BigDecimal;
-import java.util.HashSet;
+import javax.transaction.Transactional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
+@RequiredArgsConstructor
 public class AccountService implements AccountCrud {
 
-    final Set<Account> accounts = new HashSet<>();
-
-    @PostConstruct
-    public void setup() {
-        accounts.add(new Account(123456789L, 987654321L, "George Baird",
-                new BigDecimal("354.23")));
-        accounts.add(new Account(121212121L, 888777666L, "Mary Taylor",
-                new BigDecimal("560.03")));
-        accounts.add(new Account(545454545L, 222444999L, "Diana Rigg",
-                new BigDecimal("422.00")));
-    }
+    private final AccountFindAll accountFindAll;
+    private final AccountFindByNumber accountFindByNumber;
+    private final AccountSave accountSave;
 
     @Override
     public Set<Account> findAll() {
-        return accounts;
+        return accountFindAll.allAccounts().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Account getByNumber(final Long accountNumber) {
-        return accounts.
-                stream()
-                .filter(act -> act.getAccountNumber().equals(accountNumber))
-                .findFirst()
-                .orElseThrow(() -> new WebApplicationException("Account with id of " + accountNumber + " does not exist.", 404));
+        return accountFindByNumber.findByNumber(accountNumber);
     }
 
     @Override
-    public Account create(final Account account) {
-        accounts.add(account);
-        return account;
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void create(final Account account) {
+        accountSave.save(account);
     }
 
     @Override
-    public void delete(Long number) {
-        accounts.remove(getByNumber(number));
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void delete(final Long number) {
+
     }
 }

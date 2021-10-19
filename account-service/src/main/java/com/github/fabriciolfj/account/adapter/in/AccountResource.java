@@ -1,5 +1,7 @@
 package com.github.fabriciolfj.account.adapter.in;
 
+import com.github.fabriciolfj.account.adapter.in.dto.AccountRequestDTO;
+import com.github.fabriciolfj.account.adapter.in.mapper.AccountDTOMapper;
 import com.github.fabriciolfj.account.application.in.AccountCrud;
 import com.github.fabriciolfj.account.domain.Account;
 
@@ -60,11 +62,10 @@ public class AccountResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(final Account account) {
-        final var entity = accountCrud.create(account);
+    public Response create(final AccountRequestDTO dto) {
+        accountCrud.create(AccountDTOMapper.toDomain(dto));
         return Response
                 .status(201)
-                .entity(entity)
                 .build();
     }
 
