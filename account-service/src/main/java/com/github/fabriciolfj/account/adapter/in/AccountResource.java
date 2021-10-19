@@ -2,7 +2,9 @@ package com.github.fabriciolfj.account.adapter.in;
 
 import com.github.fabriciolfj.account.adapter.in.dto.AccountRequestDTO;
 import com.github.fabriciolfj.account.adapter.in.mapper.AccountDTOMapper;
+import com.github.fabriciolfj.account.application.AccountWithdraw;
 import com.github.fabriciolfj.account.application.in.AccountCrud;
+import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
 import com.github.fabriciolfj.account.domain.Account;
 
 import javax.inject.Inject;
@@ -20,6 +22,8 @@ public class AccountResource {
 
     @Inject
     AccountCrud accountCrud;
+    @Inject
+    AccountMakeWithdrawal accountMakeWithdrawal;
 
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
@@ -76,5 +80,11 @@ public class AccountResource {
         return Response.noContent().build();
     }
 
+    @PUT
+    @Path("{accountNumber}/{amount}")
+    public Response withdral(@PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
+        final var account = accountMakeWithdrawal.execute(accountNumber, amount);
+        return Response.accepted(account).build();
+    }
 
 }

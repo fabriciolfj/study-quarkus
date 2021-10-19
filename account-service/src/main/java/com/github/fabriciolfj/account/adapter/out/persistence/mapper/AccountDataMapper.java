@@ -23,8 +23,11 @@ public class AccountDataMapper {
     }
 
     public static AccountData toEntityMerge(final Account account, final AccountData accountData) {
-        final var data = toEntity(account);
-        data.setId(accountData.getId());
+        accountData.setBalance(account.getBalance());
+        accountData.setAccountStatus(account.getAccountStatus().name());
+        accountData.setAccountNumber(account.getAccountNumber());
+        accountData.setCustomerName(account.getCustomerName());
+        accountData.setCustomerNumber(account.getCustomerNumber());
 
         return accountData;
     }

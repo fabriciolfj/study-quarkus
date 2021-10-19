@@ -4,5 +4,5 @@ import com.github.fabriciolfj.account.domain.Account;
 
 public interface AccountUpdate {
 
-    Account update(final Account account, final Long accountNumber);
+    void update(final Account account, final Long accountNumber);
 }

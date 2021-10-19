@@ -9,9 +9,6 @@ import com.github.fabriciolfj.account.application.out.AccountUpdate;
 import com.github.fabriciolfj.account.domain.Account;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.ws.rs.WebApplicationException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,43 +16,34 @@ import java.util.stream.Collectors;
 @ApplicationScoped
 public class AccountAdapter implements AccountFindAll, AccountFindByNumber, AccountUpdate, AccountSave {
 
-    @Inject
-    EntityManager entityManager;
-
     @Override
     public List<Account> allAccounts() {
-        return entityManager.createNamedQuery("Accounts.findAll", AccountData.class)
-                .getResultList()
-                .stream()
+        final List<AccountData> accounts = AccountData.listAll();
+        return accounts.stream()
                 .map(AccountDataMapper::toDomain)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Account findByNumber(final Long accountNumber) {
-        try {
-            return AccountDataMapper.toDomain(getAccountData(accountNumber));
-        } catch (NoResultException e) {
-            throw new WebApplicationException("Account with " + accountNumber + "does not exist.", 404);
-        }
+        return AccountDataMapper.toDomain(getAccountData(accountNumber));
     }
 
     @Override
     public void save(final Account account) {
         final var accountData = AccountDataMapper.toEntity(account);
-        entityManager.persist(accountData);
+        AccountData.persist(accountData);
     }
 
     @Override
-    public Account update(final Account account, final Long accountNumber) {
+    public void update(final Account account, final Long accountNumber) {
         var entity = getAccountData(accountNumber);
         var entityMerge = AccountDataMapper.toEntityMerge(account, entity);
-        return AccountDataMapper.toDomain(entityMerge);
+        AccountData.persist(entityMerge);
     }
 
-    private AccountData getAccountData(Long accountNumber) {
-        return entityManager.createNamedQuery("Accounts.findByAccountNumber", AccountData.class)
-                .setParameter("accountNumber", accountNumber)
-                .getSingleResult();
+    private AccountData getAccountData(final Long accountNumber) {
+        return AccountData.findByAccountNumber(accountNumber)
+                .orElseThrow(() -> new WebApplicationException("Account with " + accountNumber + "does not exist.", 404));
     }
 }

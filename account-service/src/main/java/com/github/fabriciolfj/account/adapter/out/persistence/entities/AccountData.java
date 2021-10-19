@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.account.adapter.out.persistence.entities;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Builder
 @Data
@@ -14,9 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table(name = "account")
-@NamedQuery(name = "Accounts.findAll", query = "Select a from AccountData a Order by a.accountNumber")
-@NamedQuery(name = "Accounts.findByAccountNumber", query = "Select a from AccountData a where a.accountNumber = :accountNumber Order by a.accountNumber")
-public class AccountData {
+public class AccountData extends PanacheEntityBase {
 
     @Id
     @SequenceGenerator(name = "accountsSequence", sequenceName = "account_id_seq", allocationSize = 1, initialValue = 10)
@@ -27,4 +27,13 @@ public class AccountData {
     private Long customerNumber;
     private BigDecimal balance;
     private String accountStatus;
+
+    public static Optional<AccountData> findByAccountNumber(final Long accountNumber) {
+        return find("accountNumber", accountNumber)
+                .firstResultOptional();
+    }
+
+    public static long totalAccountForCustomer(final Long customerLong) {
+        return find("customerNumber", customerLong).count();
+    }
 }

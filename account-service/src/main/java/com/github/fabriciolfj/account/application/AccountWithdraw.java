@@ -23,6 +23,8 @@ public class AccountWithdraw implements AccountMakeWithdrawal {
         final var account = accountFindByNumber.findByNumber(accountNumber);
         account.withdrawFunds(new BigDecimal(amount));
 
-        return accountUpdate.update(account, accountNumber);
+        accountUpdate.update(account, accountNumber);
+
+        return account;
     }
 }
