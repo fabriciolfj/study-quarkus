@@ -40,3 +40,9 @@ kubectl get secret db-credentials -o jsonpath='{.data}'
 ```
 kubectl delete -f /target/kubernetes/minikube.yaml.
 ```
+
+- No quarkus possui 3 profiles já existentes:
+  - %prod: utilizado para deploy da imagem ou em kubernetes
+  - %test: utilizado para execucao dos testes
+  - %dev: para desenvolvimento
+  - caso queira utilizar outro profile, pode-se utilizar %profile e mvn clean compile -Dquarkus.profile=profile  
