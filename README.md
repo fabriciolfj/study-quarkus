@@ -6,6 +6,7 @@ eval $(minikube -p minikube docker-env)
 - Build imagem docker:
 ```
 mvn clean package -Dquarkus.container-image.build=true
+mvn clean package -Dquarkus.native.container-image.build=true
 ```
 - Deploy em um ambiente kubernetes:
 ```
@@ -31,6 +32,9 @@ kubectl create secret generic db-credentials \
         --from-literal=password=secret \
         --from-literal=db.username=quarkus_banking \
         --from-literal=db.password=quarkus_banking
+        
+kubectl get secret db-credentials -o jsonpath='{.data}'
+        
 ```
 - Deletando o deployment (caso tente repetir um deploy novamente pelo quarkus)
 ```
