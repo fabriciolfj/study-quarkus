@@ -1,6 +1,7 @@
 package com.github.fabriciolfj.account.application;
 
 import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
+import com.github.fabriciolfj.account.application.in.FindBalance;
 import com.github.fabriciolfj.account.application.out.AccountFindByNumber;
 import com.github.fabriciolfj.account.application.out.AccountUpdate;
 import com.github.fabriciolfj.account.domain.Account;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 
 @RequiredArgsConstructor
 @ApplicationScoped
-public class AccountWithdraw implements AccountMakeWithdrawal {
+public class AccountWithdraw implements AccountMakeWithdrawal, FindBalance {
 
     private final AccountUpdate accountUpdate;
     private final AccountFindByNumber accountFindByNumber;
@@ -26,5 +27,11 @@ public class AccountWithdraw implements AccountMakeWithdrawal {
         accountUpdate.update(account, accountNumber);
 
         return account;
+    }
+
+    @Override
+    public BigDecimal getBalance(final Long accountNumber) {
+        return accountFindByNumber.findByNumber(accountNumber)
+                .getBalance();
     }
 }

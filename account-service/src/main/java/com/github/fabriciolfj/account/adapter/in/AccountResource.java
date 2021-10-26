@@ -5,6 +5,7 @@ import com.github.fabriciolfj.account.adapter.in.mapper.AccountDTOMapper;
 import com.github.fabriciolfj.account.application.AccountWithdraw;
 import com.github.fabriciolfj.account.application.in.AccountCrud;
 import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
+import com.github.fabriciolfj.account.application.in.FindBalance;
 import com.github.fabriciolfj.account.domain.Account;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Path("accounts")
@@ -24,6 +26,8 @@ public class AccountResource {
     AccountCrud accountCrud;
     @Inject
     AccountMakeWithdrawal accountMakeWithdrawal;
+    @Inject
+    FindBalance findBalance;
 
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
@@ -85,6 +89,12 @@ public class AccountResource {
     public Response withdral(@PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
         final var account = accountMakeWithdrawal.execute(accountNumber, amount);
         return Response.accepted(account).build();
+    }
+
+    @GET
+    @Path("balance/{accountNumber}")
+    public BigDecimal getBalance(@PathParam("accountNumber") final Long accountNumber) {
+        return findBalance.getBalance(accountNumber);
     }
 
 }
