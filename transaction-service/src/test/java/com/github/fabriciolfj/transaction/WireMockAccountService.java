@@ -16,12 +16,6 @@ public class WireMockAccountService implements QuarkusTestResourceLifecycleManag
     public Map<String, String> start() {
         wireMockServer = new WireMockServer();
         wireMockServer.start();
-
-        stubFor(get(urlEqualTo("/accounts/balance/121212"))
-                .willReturn(aResponse()
-                .withHeader("Content-Type", "application/json")
-                        .withBody("400.00")));
-
         return Collections.singletonMap("com.github.fabriciolfj.transaction.integration.httpAccountService/mp-rest/url",
                 wireMockServer.baseUrl());
     }
