@@ -5,11 +5,13 @@ import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Readiness;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.WebApplicationException;
 import java.math.BigDecimal;
 
 @Readiness
+@ApplicationScoped
 public class AccountHealthReadinessCheck implements HealthCheck {
 
     @Inject
