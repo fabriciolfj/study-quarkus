@@ -14,3 +14,5 @@ INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
   customerNumber) VALUES (70000, 5465, 0, 239.33, 'Alex Trebek', 776868);
 INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
   customerNumber) VALUES (800, 78790, 0, 439.01, 'Vanna White', 444222);
+ INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber)
+    VALUES (9, 999999999, 0, 999999999.01, 'Readiness HealthCheck', 99999999999);

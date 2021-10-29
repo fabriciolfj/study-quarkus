@@ -154,10 +154,18 @@
     <orderEntry type="library" name="Maven: io.smallrye.common:smallrye-common-constraint:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-kubernetes:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-container-image:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-container-image-jib:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-arc:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus.arc:arc:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: jakarta.transaction:jakarta.transaction-api:1.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.microprofile.context-propagation:microprofile-context-propagation-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-health:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-health:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.health:microprofile-health-api:3.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-health-api:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-health-provided-checks:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonp:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish:jakarta.json:1.1.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-app-model:2.3.1.Final" level="project" />
@@ -287,8 +295,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-builder:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-launcher:1.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp-deployment:2.3.1.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp:2.3.1.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish:jakarta.json:1.1.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
   </component>
   <component name="Quarkus Tools">
