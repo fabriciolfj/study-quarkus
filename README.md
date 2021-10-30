@@ -46,3 +46,24 @@ kubectl delete -f /target/kubernetes/minikube.yaml.
   - %test: utilizado para execucao dos testes
   - %dev: para desenvolvimento
   - caso queira utilizar outro profile, pode-se utilizar %profile e mvn clean compile -Dquarkus.profile=profile  
+
+- Estatégias de fall tolerance
+  - @asynchronous: executa o método em outra thread
+  - @bulkhead: limita o número de requisições concorrentes
+  - @circuitbreaker: evitar repetição de falhas
+  - @fallback: lógica alternativa diante a alguma exceção
+  - @retry: retentativas de execução, diante a alguma exceção
+  - @timeout: tempo máximo para execução de alguma chamada externa
+  - dependência:
+```
+mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"
+```
+
+###### Circuit breaker
+- requestVolumeThreshold: número de solicitações, utilizado para calcular a abertura de um circuito
+- failureRatio: percentual com base na propriedade acima, para abertura do circuito
+- delay: tempo que o circuito permanece aberto, antes de aceitar uma solicitação
+- delayUnit: unidade de tempo
+- successThreshold: número de solicitações com sucesso, para fechar o circuito
+- failOn: lista de exceções que participaram do circuito
+- skipOn: exeções ignoradas
