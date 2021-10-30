@@ -46,3 +46,11 @@ kubectl delete -f /target/kubernetes/minikube.yaml.
   - %test: utilizado para execucao dos testes
   - %dev: para desenvolvimento
   - caso queira utilizar outro profile, pode-se utilizar %profile e mvn clean compile -Dquarkus.profile=profile  
+
+- Estatégias de fall tolerance
+  - @asynchronous: executa o método em outra thread
+  - @bulkhead: limita o número de requisições concorrentes
+  - @circuitbreaker: evitar repetição de falhas
+  - @fallback: lógica alternativa diante a alguma exceção
+  - @retry: retentativas de execução, diante a alguma exceção
+  - @timeout: tempo máximo para execução de alguma chamada externa
