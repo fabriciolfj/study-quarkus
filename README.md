@@ -54,3 +54,7 @@ kubectl delete -f /target/kubernetes/minikube.yaml.
   - @fallback: lógica alternativa diante a alguma exceção
   - @retry: retentativas de execução, diante a alguma exceção
   - @timeout: tempo máximo para execução de alguma chamada externa
+  - dependência:
+```
+mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"
+```
