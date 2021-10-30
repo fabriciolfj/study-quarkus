@@ -58,3 +58,12 @@ kubectl delete -f /target/kubernetes/minikube.yaml.
 ```
 mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"
 ```
+
+###### Circuit breaker
+- requestVolumeThreshold: número de solicitações, utilizado para calcular a abertura de um circuito
+- failureRatio: percentual com base na propriedade acima, para abertura do circuito
+- delay: tempo que o circuito permanece aberto, antes de aceitar uma solicitação
+- delayUnit: unidade de tempo
+- successThreshold: número de solicitações com sucesso, para fechar o circuito
+- failOn: lista de exceções que participaram do circuito
+- skipOn: exeções ignoradas
