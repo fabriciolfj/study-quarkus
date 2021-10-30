@@ -1,18 +1,23 @@
 package com.github.fabriciolfj.transaction.controller;
 
+import com.github.fabriciolfj.transaction.exceptions.TransactionServiceFallbackHandler;
 import com.github.fabriciolfj.transaction.integration.http.AccountService;
+import org.eclipse.microprofile.faulttolerance.*;
+import org.eclipse.microprofile.faulttolerance.exceptions.BulkheadException;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeoutException;
 
 @Path("transactions")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -43,8 +48,19 @@ public class TransactionController {
     }
 
     @GET
+    @CircuitBreaker(requestVolumeThreshold=3, failureRatio=.90, successThreshold=2, delay = 5, delayUnit = ChronoUnit.SECONDS)
+    @Retry(maxRetries = 3, delay = 100, jitter = 25, retryOn = TimeoutException.class)
+    @Timeout(50)
+    @Bulkhead(value=1)
+    @Fallback(value = TransactionServiceFallbackHandler.class
+            /*fallbackMethod = "bulkheadBalance" ,
+            applyOn = BulkheadException.class*/)
     @Path("{accountNumber}/balance")
     public Response getBalance(@PathParam("accountNumber") final Long accountNumber) {
         return Response.accepted(accountService.getBalance(accountNumber)).build();
+    }
+
+    public Response bulkheadBalance(final Long accountNumber) {
+        return Response.status(Response.Status.TOO_MANY_REQUESTS).build();
     }
 }

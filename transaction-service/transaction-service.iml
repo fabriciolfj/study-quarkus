@@ -21,13 +21,6 @@
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx-http:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-security-runtime-spi:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.quarkus:quarkus-mutiny:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye.reactive:mutiny:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-context-propagation:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-api:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-storage:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye.reactive:mutiny-smallrye-context-propagation:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx-http-dev-console-runtime-spi:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus.security:quarkus-security:1.1.4.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx:2.3.1.Final" level="project" />
@@ -64,15 +57,11 @@
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-rest-client:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-core:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.5" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.enterprise:jakarta.enterprise.cdi-api:2.0.2" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: jakarta.inject:jakarta.inject-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-ide-launcher:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-development-mode-spi:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.config:smallrye-config:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.config:smallrye-config-core:2.5.1" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.common:smallrye-common-expression:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.common:smallrye-common-function:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.common:smallrye-common-classloader:1.6.0" level="project" />
@@ -166,6 +155,27 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-health-provided-checks:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonp:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:jakarta.json:1.1.6" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-fault-tolerance:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-mutiny:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye.reactive:mutiny:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye.reactive:mutiny-smallrye-context-propagation:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.fault-tolerance:microprofile-fault-tolerance-api:3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-api:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-core:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-autoconfig-core:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-api:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.enterprise:jakarta.enterprise.cdi-api:2.0.2" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:3.0.3" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.5" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-context-propagation:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-api:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-storage:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-context-propagation:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-mutiny:2.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-app-model:2.3.1.Final" level="project" />
@@ -298,6 +308,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
   </component>
   <component name="Quarkus Tools">
-    <option name="hash" value="1247150680" />
+    <option name="hash" value="-1867840466" />
   </component>
 </module>
