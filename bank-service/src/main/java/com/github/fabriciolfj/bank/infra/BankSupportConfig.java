@@ -1,8 +1,8 @@
 package com.github.fabriciolfj.bank.infra;
 
-import org.eclipse.microprofile.config.inject.ConfigProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigProperties(prefix = "bank-support")
+@ConfigurationProperties(prefix = "bank-support")
 public class BankSupportConfig {
 
     private String phone;
@@ -19,5 +19,9 @@ public class BankSupportConfig {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
