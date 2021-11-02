@@ -6,14 +6,15 @@ import com.github.fabriciolfj.account.application.in.AccountCrud;
 import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
 import com.github.fabriciolfj.account.application.in.FindBalance;
 import com.github.fabriciolfj.account.domain.Account;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
-import javax.ws.rs.*;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -22,7 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Path("accounts")
+@RestController
+@RequestMapping("/accounts")
 public class AccountResource {
 
     @Inject
@@ -32,7 +34,7 @@ public class AccountResource {
     @Inject
     FindBalance findBalance;
 
-    @Provider
+    @RestControllerAdvice
     public static class ErrorMapper implements ExceptionMapper<Exception> {
 
         @Override
@@ -58,21 +60,17 @@ public class AccountResource {
         }
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @GetMapping
     public Set<Account> allAccounts() {
         return accountCrud.findAll();
     }
 
-    @GET
-    @Path("{accountNumber}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @GetMapping("/{accountNumber}")
     public Account getAccount(@PathParam("accountNumber") final Long accountNumber) {
         return accountCrud.getByNumber(accountNumber);
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @PostMapping
     public Response create(final AccountRequestDTO dto) {
         accountCrud.create(AccountDTOMapper.toDomain(dto));
         return Response
@@ -80,22 +78,19 @@ public class AccountResource {
                 .build();
     }
 
-    @DELETE
-    @Path("{accountNumber}")
+    @DeleteMapping("/{accountNumber}")
     public Response delete(@PathParam("accountNumber") final Long accountNumber) {
         accountCrud.delete(accountNumber);
         return Response.noContent().build();
     }
 
-    @PUT
-    @Path("{accountNumber}/{amount}")
+    @PutMapping("/{accountNumber}/{amount}")
     public Map<String, List<String>> withdral(@Context final HttpHeaders headers, @PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
         accountMakeWithdrawal.execute(accountNumber, amount);
         return headers.getRequestHeaders();
     }
 
-    @GET
-    @Path("balance/{accountNumber}")
+    @GetMapping("/balance/{accountNumber}")
     public BigDecimal getBalance(@PathParam("accountNumber") final Long accountNumber) {
         return findBalance.getBalance(accountNumber);
     }

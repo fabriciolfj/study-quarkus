@@ -10,7 +10,7 @@ public class Account {
     private Long customerNumber;
     private String customerName;
     private BigDecimal balance;
-    private AccountStatus accountStatus = AccountStatus.OPEN;
+    private AccountStatus accountStatus;
     private BigDecimal overdraftLimit;
 
     public Account() {
