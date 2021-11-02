@@ -1,18 +1,8 @@
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (10001, 123456789, 0, 550.78, 'Debbie Hall', 12345);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (200001, 111222333, 0, 2389.32, 'David Tennant', 112211);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (30001, 444666, 0, 3499.12, 'Billie Piper', 332233);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (40000, 87878787, 0, 890.54, 'Matt Smith', 444434);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (5000, 990880221, 0, 1298.34, 'Alex Kingston', 778877);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (60000, 987654321, 0, 781.82, 'Tom Baker', 908990);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (70000, 5465, 0, 239.33, 'Alex Trebek', 776868);
-INSERT INTO account(id, accountNumber, accountStatus, balance, customerName,
-  customerNumber) VALUES (800, 78790, 0, 439.01, 'Vanna White', 444222);
- INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber)
-    VALUES (9, 999999999, 0, 999999999.01, 'Readiness HealthCheck', 99999999999);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 123456789, 0, 550.78, 'Debbie Hall', 12345, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 111222333, 0, 2389.32, 'David Tennant', 112211, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 444666, 0, 3499.12, 'Billie Piper', 332233, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 87878787, 0, 890.54, 'Matt Smith', 444434, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 990880221, 0, 1298.34, 'Alex Kingston', 778877, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 987654321, 0, 781.82, 'Tom Baker', 908990, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 5465, 0, 239.33, 'Alex Trebek', 776868, -200.00);
+INSERT INTO account(id, accountNumber, accountStatus, balance, customerName, customerNumber, overdraftLimit) VALUES (nextval('hibernate_sequence'), 78790, 0, 439.01, 'Vanna White', 444222, -200.00);

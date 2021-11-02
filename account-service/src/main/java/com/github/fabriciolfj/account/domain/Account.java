@@ -1,5 +1,7 @@
 package com.github.fabriciolfj.account.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -9,15 +11,18 @@ public class Account {
     private String customerName;
     private BigDecimal balance;
     private AccountStatus accountStatus = AccountStatus.OPEN;
+    private BigDecimal overdraftLimit;
 
     public Account() {
     }
 
-    public Account(final Long accountNumber, final Long customerNumber, final String customerName, final BigDecimal balance) {
+    public Account(final Long accountNumber, final Long customerNumber, final String customerName, final BigDecimal balance, final BigDecimal overdraftLimit, final AccountStatus status) {
         this.accountNumber = accountNumber;
         this.customerNumber = customerNumber;
         this.customerName = customerName;
         this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
+        this.accountStatus = status;
     }
 
     public void markOverdrawn() {
@@ -59,6 +64,20 @@ public class Account {
 
     public Long getCustomerNumber() {
         return customerNumber;
+    }
+
+    public BigDecimal getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    @JsonIgnore
+    public boolean isBalanceSmallerOverdraft() {
+        return this.balance.compareTo(this.overdraftLimit) <= 0;
+    }
+
+    @JsonIgnore
+    public boolean isBalanceNegative() {
+        return this.balance.compareTo(BigDecimal.ZERO) < 0;
     }
 
     @Override

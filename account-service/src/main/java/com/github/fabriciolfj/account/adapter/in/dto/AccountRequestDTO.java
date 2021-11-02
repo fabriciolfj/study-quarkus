@@ -11,4 +11,5 @@ public class AccountRequestDTO {
     private Long customerNumber;
     private String customerName;
     private BigDecimal balance;
+    private BigDecimal overdraftLimit;
 }

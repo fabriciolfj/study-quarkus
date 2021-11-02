@@ -35,7 +35,7 @@ public class AccountResourceTest {
 
         final var accounts = result.jsonPath().getList("$");
         assertThat(accounts, not(empty()));
-        assertThat(accounts, hasSize(9));
+        assertThat(accounts, hasSize(8));
     }
 
     /*@Test

@@ -10,6 +10,7 @@ import com.github.fabriciolfj.account.domain.Account;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.WebApplicationException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,6 +41,7 @@ public class AccountAdapter implements AccountFindAll, AccountFindByNumber, Acco
     }
 
     @Override
+    @Transactional
     public void update(final Account account, final Long accountNumber) {
         var entity = getAccountData(accountNumber);
         var entityMerge = AccountDataMapper.toEntityMerge(account, entity);

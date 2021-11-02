@@ -24,5 +24,6 @@ public class AccountData {
     private Long customerNumber;
     private BigDecimal balance;
     private String accountStatus;
+    private BigDecimal overdraftLimit;
 
 }
