@@ -13,7 +13,7 @@ public class AccountDataMapper {
                 .builder()
                 .customerNumber(account.getCustomerNumber())
                 .accountNumber(account.getAccountNumber())
-                .accountStatus(account.getAccountStatus().name())
+                .accountStatus(String.valueOf(account.getAccountStatus().getOrder()))
                 .customerName(account.getCustomerName())
                 .balance(account.getBalance())
                 .overdraftLimit(account.getOverdraftLimit())
