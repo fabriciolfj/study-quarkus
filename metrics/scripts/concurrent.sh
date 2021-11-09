@@ -18,8 +18,7 @@ function post_deposit() {
    while (( count++ < $num_deposits )); do
      curl -s -i \
         -H "Content-Type:application/json" \
-        -X POST \
-        -d "\""$((1 + $RANDOM % 1000))"\"" \
+        -X PUT \
         $url
    done
    echo
@@ -32,14 +31,14 @@ function create_many_blocking_calls() {
 # Run the many instances in the background to cause the
 # concurrent gauge to count simultaneous calls
 
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
-   post_deposit $base_url/transactions/444666 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
+   post_deposit $base_url/transactions/444666/2 $requests_per_process &
 
 # Wait for the background processes to stop.
 

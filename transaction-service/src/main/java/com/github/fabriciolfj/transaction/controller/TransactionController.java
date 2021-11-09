@@ -4,6 +4,7 @@ import com.github.fabriciolfj.transaction.exceptions.TransactionServiceFallbackH
 import com.github.fabriciolfj.transaction.integration.http.AccountService;
 import org.eclipse.microprofile.faulttolerance.*;
 import org.eclipse.microprofile.faulttolerance.exceptions.BulkheadException;
+import org.eclipse.microprofile.metrics.annotation.ConcurrentGauge;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
@@ -28,6 +29,11 @@ public class TransactionController {
     @RestClient
     AccountService accountService;
 
+    @ConcurrentGauge(
+            name = "concurrentBlockingTransactions",
+            absolute = true,
+            description = "Number of concurrent transactions using blocking api"
+    )
     @PUT
     @Path("{accountNumber}/{amount}")
     public Map<String, List<String>> newTransaction(@PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
