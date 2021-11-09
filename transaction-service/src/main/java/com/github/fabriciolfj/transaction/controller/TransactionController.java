@@ -4,13 +4,16 @@ import com.github.fabriciolfj.transaction.exceptions.TransactionServiceFallbackH
 import com.github.fabriciolfj.transaction.integration.http.AccountService;
 import org.eclipse.microprofile.faulttolerance.*;
 import org.eclipse.microprofile.faulttolerance.exceptions.BulkheadException;
+import org.eclipse.microprofile.metrics.Histogram;
 import org.eclipse.microprofile.metrics.annotation.ConcurrentGauge;
+import org.eclipse.microprofile.metrics.annotation.Metric;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.HashMap;
@@ -29,6 +32,13 @@ public class TransactionController {
     @RestClient
     AccountService accountService;
 
+    @Inject
+    @Metric(
+            name = "deposits",
+            description = "Deposit histogram"
+    )
+    Histogram histogram;
+
     @ConcurrentGauge(
             name = "concurrentBlockingTransactions",
             absolute = true,
@@ -38,6 +48,7 @@ public class TransactionController {
     @Path("{accountNumber}/{amount}")
     public Map<String, List<String>> newTransaction(@PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
         try {
+            histogram.update(new BigDecimal(amount).longValue());
             return accountService.transact(accountNumber, amount);
         } catch (Exception e) {
             e.printStackTrace();
