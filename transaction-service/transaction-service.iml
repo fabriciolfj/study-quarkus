@@ -167,7 +167,6 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-core:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-autoconfig-core:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:3.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-api:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.enterprise:jakarta.enterprise.cdi-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:3.0.3" level="project" />
@@ -178,6 +177,9 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-storage:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-context-propagation:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-mutiny:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-metrics:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-metrics:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-app-model:2.3.1.Final" level="project" />
@@ -308,5 +310,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-launcher:1.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp-deployment:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
+  </component>
+  <component name="Quarkus Tools">
+    <option name="hash" value="-881320436" />
   </component>
 </module>

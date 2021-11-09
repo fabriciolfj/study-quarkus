@@ -6,6 +6,8 @@ import com.github.fabriciolfj.account.application.in.AccountCrud;
 import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
 import com.github.fabriciolfj.account.application.in.FindBalance;
 import com.github.fabriciolfj.account.domain.Account;
+import org.eclipse.microprofile.metrics.Counter;
+import org.eclipse.microprofile.metrics.annotation.Metric;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -35,8 +37,15 @@ public class AccountResource {
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
 
+        @Metric(
+                name = "ErrorMapperCounter",
+                description = "Number of times the AccountResource ErrorMapper is invoked"
+        )
+        Counter errorMapperCounter;
+
         @Override
         public Response toResponse(Exception exception) {
+            errorMapperCounter.inc();
 
             int code = 500;
             if (exception instanceof WebApplicationException) {
