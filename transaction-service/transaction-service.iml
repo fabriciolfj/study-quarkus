@@ -59,7 +59,6 @@
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-rest-client:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-core:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.inject:jakarta.inject-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-ide-launcher:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-development-mode-spi:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.config:smallrye-config:2.5.1" level="project" />
@@ -77,7 +76,6 @@
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-bootstrap-runner:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy-common:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-core:4.7.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-core-spi:4.7.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.async:asyncutil:0.1.0" level="project" />
@@ -88,7 +86,6 @@
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-client:4.7.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-client-api:4.7.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-cdi:4.7.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.rest.client:microprofile-rest-client-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.interceptor:jakarta.interceptor-api:1.2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.14" level="project" />
@@ -166,7 +163,7 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-api:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-core:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-autoconfig-core:5.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:3.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-api:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.enterprise:jakarta.enterprise.cdi-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:3.0.3" level="project" />
@@ -177,9 +174,37 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-context-propagation-storage:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-context-propagation:5.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.smallrye.reactive:smallrye-reactive-converter-mutiny:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-metrics:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye:smallrye-metrics:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-micrometer-registry-prometheus:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-micrometer:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.micrometer:micrometer-registry-prometheus:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_common:0.10.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.10.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-smallrye-opentracing:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.opentracing:microprofile-opentracing-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-opentracing:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.rest.client:microprofile-rest-client-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing:opentracing-api:0.33.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing.contrib:opentracing-jaxrs2:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing.contrib:opentracing-web-servlet-filter:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing.contrib:opentracing-concurrent:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing:opentracing-noop:0.33.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing.contrib:opentracing-interceptors:0.1.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.opentracing.contrib:opentracing-tracerresolver:0.1.8" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:2.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-fault-tolerance-tracing-propagation:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.inject:jakarta.inject-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-jaeger:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.jaegertracing:jaeger-core:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opentracing:opentracing-util:0.33.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Maven: io.jaegertracing:jaeger-thrift:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.14.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.46" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.servlet:jakarta.servlet-api:4.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-app-model:2.3.1.Final" level="project" />
@@ -312,6 +337,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
   </component>
   <component name="Quarkus Tools">
-    <option name="hash" value="-881320436" />
+    <option name="hash" value="985765864" />
   </component>
 </module>

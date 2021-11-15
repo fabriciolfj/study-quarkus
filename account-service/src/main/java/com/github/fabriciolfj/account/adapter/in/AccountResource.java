@@ -6,8 +6,10 @@ import com.github.fabriciolfj.account.application.in.AccountCrud;
 import com.github.fabriciolfj.account.application.in.AccountMakeWithdrawal;
 import com.github.fabriciolfj.account.application.in.FindBalance;
 import com.github.fabriciolfj.account.domain.Account;
+import io.opentracing.Tracer;
 import org.eclipse.microprofile.metrics.Counter;
 import org.eclipse.microprofile.metrics.annotation.Metric;
+import org.eclipse.microprofile.opentracing.Traced;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -33,6 +35,8 @@ public class AccountResource {
     AccountMakeWithdrawal accountMakeWithdrawal;
     @Inject
     FindBalance findBalance;
+    @Inject
+    Tracer tracer;
 
     @Provider
     public static class ErrorMapper implements ExceptionMapper<Exception> {
@@ -98,7 +102,11 @@ public class AccountResource {
 
     @PUT
     @Path("{accountNumber}/{amount}")
+    @Traced(operationName = "withdraw-from-account")
     public Map<String, List<String>> withdral(@Context final HttpHeaders headers, @PathParam("accountNumber") final Long accountNumber, @PathParam("amount") final String amount) {
+        tracer.activeSpan().setTag("accountNumber", accountNumber);
+        tracer.activeSpan().setBaggageItem("withdrawalAmount", amount);
+
         accountMakeWithdrawal.execute(accountNumber, amount);
         return headers.getRequestHeaders();
     }
