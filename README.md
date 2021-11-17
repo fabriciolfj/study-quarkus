@@ -67,3 +67,10 @@ mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"
 - successThreshold: número de solicitações com sucesso, para fechar o circuito
 - failOn: lista de exceções que participaram do circuito
 - skipOn: exeções ignoradas
+
+###### openapi
+- antigamente conhecido como swagger, para implementarmos em produção, devemos:
+  - pegar o yaml por: localhost:8080/q/openapi
+  - colocar no diretório: resources/meta-inf
+  - a opção deve ficar false: quarkus.swagger-ui.always-include=true
+  - obs: para desenv funciona sem tal necessidade, apenas para pro (%prod)
