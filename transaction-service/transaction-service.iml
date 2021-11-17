@@ -337,6 +337,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
   </component>
   <component name="Quarkus Tools">
-    <option name="hash" value="985765864" />
+    <option name="hash" value="1072636516" />
   </component>
 </module>

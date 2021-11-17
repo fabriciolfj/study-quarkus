@@ -1,0 +1,174 @@
+---
+openapi: 3.0.3
+info:
+  title: Account Service (development)
+  description: "Service for maintaining accounts, their balances, and issuing deposit\
+    \ and withdrawal transactions"
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+tags:
+  - name: transactions
+    description: Operations manipulating account balances.
+paths:
+  /accounts:
+    get:
+      tags:
+        - Account Resource
+      operationId: allAccounts
+      responses:
+        "200":
+          description: Retrieved all Accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account1'
+    post:
+      tags:
+        - Account Resource
+      description: Create a bew bank account
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        "201":
+          description: Successfully created a new account.
+          content: {}
+        "400":
+          description: No account number was specified on the Account.
+          content: {}
+  /accounts/balance/{accountNumber}:
+    get:
+      tags:
+        - transactions
+      operationId: getBalance
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: number
+  /accounts/{accountNumber}:
+    get:
+      tags:
+        - Account Resource
+      operationId: getAccount
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account1'
+    delete:
+      tags:
+        - Account Resource
+      operationId: delete
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+  /accounts/{accountNumber}/{amount}:
+    put:
+      tags:
+        - transactions
+      operationId: withdral
+      parameters:
+        - name: accountNumber
+          in: path
+          description: Number of the Account to deposit into.
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Amount to be deposited into the account.
+        content: {}
+        required: true
+      responses:
+        "200":
+          description: Successfully deposited funds to an account.
+          content: {}
+components:
+  schemas:
+    Account:
+      description: POJO representing an account.
+      required:
+        - accountNumber
+        - customerNumber
+        - balance
+      type: object
+      properties:
+        accountNumber:
+          format: int64
+          minLength: 8
+          type: integer
+          example: 123456789
+        customerNumber:
+          format: int64
+          minLength: 6
+          type: integer
+          example: 432542374
+        customerName:
+          type: string
+          example: Steve Hanger
+        balance:
+          type: number
+          example: 438.32
+        overdraftLimit:
+          type: number
+    Account1:
+      type: object
+      properties:
+        accountNumber:
+          format: int64
+          type: integer
+        customerNumber:
+          format: int64
+          type: integer
+        customerName:
+          type: string
+        balance:
+          type: number
+        accountStatus:
+          $ref: '#/components/schemas/AccountStatus'
+        overdraftLimit:
+          type: number
+    AccountStatus:
+      enum:
+        - CLOSED
+        - OPEN
+        - OVERDRAWN
+      type: string
