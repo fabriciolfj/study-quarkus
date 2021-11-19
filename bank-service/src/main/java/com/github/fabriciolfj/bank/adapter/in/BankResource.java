@@ -6,6 +6,7 @@ import io.smallrye.config.ConfigMapping;
 import org.eclipse.microprofile.config.inject.ConfigProperties;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -50,6 +51,14 @@ public class BankResource {
         map.put("password", password);
 
         return map;
+    }
+
+    @RolesAllowed("bankadmin")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/secure/secrets")
+    public Map<String, String> secureGetSecrets() {
+        return getSecrets();
     }
 
     @GET

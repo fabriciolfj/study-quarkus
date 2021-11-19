@@ -77,6 +77,12 @@ public class TransactionController {
         return Response.accepted(accountService.getBalance(accountNumber)).build();
     }
 
+    @GET
+    @Path("/secure/{accountNumber}/balance")
+    public Response getBalanceSecure(@PathParam("accountNumber") final Long accountNumber) {
+        return Response.accepted(accountService.getBalance(accountNumber)).build();
+    }
+
     public Response bulkheadBalance(final Long accountNumber) {
         return Response.status(Response.Status.TOO_MANY_REQUESTS).build();
     }

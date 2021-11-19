@@ -24,7 +24,6 @@
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx-http:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-security-runtime-spi:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx-http-dev-console-runtime-spi:2.3.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.quarkus.security:quarkus-security:1.1.4.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-netty:2.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.68.Final" level="project" />
@@ -205,6 +204,25 @@
     <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.14.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.46" level="project" />
     <orderEntry type="library" name="Maven: jakarta.servlet:jakarta.servlet-api:4.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-elytron-security-properties-file:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-elytron-security:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-elytron-security-common:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth-server:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-base:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-credential:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-asn1:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-keystore:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-provider-util:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-permission:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-util:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-password-impl:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-realm:1.17.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-security:2.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus.security:quarkus-security:1.1.4.Final" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.security.jacc:jakarta.security.jacc-api:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.security.auth.message:jakarta.security.auth.message-api:1.1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-app-model:2.3.1.Final" level="project" />
@@ -335,6 +353,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-launcher:1.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp-deployment:2.3.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.4.0.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-test-security:2.3.1.Final" level="project" />
   </component>
   <component name="Quarkus Tools">
     <option name="hash" value="1072636516" />

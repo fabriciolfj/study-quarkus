@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Path("accounts")
-/*@OpenAPIDefinition(
+@OpenAPIDefinition(
         tags = {
 
                 @Tag(name = "admin",
@@ -55,7 +55,7 @@ import java.util.Set;
                         url = "https://www.apache.org/licenses/LICENSE-2.0.html"
                 )
         )
-)*/
+)
 public class AccountResource {
 
     @Inject
@@ -102,13 +102,13 @@ public class AccountResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    /*@APIResponse(responseCode = "200", description = "Retrieved all Accounts",
+    @APIResponse(responseCode = "200", description = "Retrieved all Accounts",
             content = @Content(
                     schema = @Schema(
                             type = SchemaType.ARRAY,
                             implementation = Account.class)
             )
-    )*/
+    )
     public Set<Account> allAccounts() {
         return accountCrud.findAll();
     }
@@ -122,24 +122,16 @@ public class AccountResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    /*@Operation(description = "Create a bew bank account")
+    @Operation(description = "Create a bew bank account")
     @APIResponse(responseCode = "201", description =
             "Successfully created a new account.",
             content = @Content(
                     schema = @Schema(implementation = Account.class))
     )
-    @APIResponse(responseCode = "400",
-            description = "No account number was specified on the Account.",
+    @APIResponse(responseCode = "400", description = "No account number was specified on the Account.",
             content = @Content(
-                    schema = @Schema(
-                            implementation = ErrorResponse.class,
-                            example = "{\n" +
-                                    "\"exceptionType\": \"javax.ws.rs.WebApplicationException\",\n" +
-                                    "\"code\": 400,\n" +
-                                    "\"error\": \"No Account number specified.\"\n" +
-                                    "}\n")
-            )
-    )*/
+                    schema = @Schema(implementation = ErrorResponse.class))
+    )
     public Response create(final AccountRequestDTO dto) {
         accountCrud.create(AccountDTOMapper.toDomain(dto));
         return Response
@@ -154,7 +146,7 @@ public class AccountResource {
         return Response.noContent().build();
     }
 
-    /*@APIResponse(responseCode = "200", description =
+    @APIResponse(responseCode = "200", description =
             "Successfully deposited funds to an account.",
             content = @Content(
                     schema = @Schema(implementation = Account.class))
@@ -171,7 +163,7 @@ public class AccountResource {
                             minLength = 4),
                     example = "435.61"
             )
-    )*/
+    )
     @PUT
     @Path("{accountNumber}/{amount}")
     @Traced(operationName = "withdraw-from-account")
