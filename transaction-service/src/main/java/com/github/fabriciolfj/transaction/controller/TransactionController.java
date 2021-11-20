@@ -9,6 +9,7 @@ import org.eclipse.microprofile.metrics.annotation.ConcurrentGauge;
 import org.eclipse.microprofile.metrics.annotation.Metric;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -64,6 +65,7 @@ public class TransactionController {
         return accountService.asyncTransact(accountNumber, amount);
     }
 
+    @RolesAllowed("customer")
     @GET
     @CircuitBreaker(requestVolumeThreshold=3, failureRatio=.90, successThreshold=2, delay = 5, delayUnit = ChronoUnit.SECONDS)
     @Retry(maxRetries = 3, delay = 100, jitter = 25, retryOn = TimeoutException.class)

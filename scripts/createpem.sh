@@ -8,7 +8,7 @@
 # without installing specil tooling. Good enough for this purpose!
 
 BEGIN_STRING="-----BEGIN PUBLIC KEY-----"
-PUBLIC_KEY=`curl -s http://keycloak.local/auth/realms/bank | cut -d\" -f8`
+PUBLIC_KEY=`curl -s https://10.107.0.219:8443/auth/realms/bank | cut -d\" -f8`
 END_STRING="-----END PUBLIC KEY-----"
 
 echo $BEGIN_STRING

@@ -24,6 +24,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.opentracing.Traced;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
@@ -185,6 +186,7 @@ public class AccountResource {
 
     @GET
     @Path("balance/{accountNumber}")
+    @RolesAllowed("customer")
     @Tag(name = "transactions",
             description = "Operations manipulating account balances.")
     public BigDecimal getBalance(@PathParam("accountNumber") final Long accountNumber) {

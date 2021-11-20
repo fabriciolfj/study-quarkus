@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 
-@QuarkusTest
+/*@QuarkusTest
 @QuarkusTestResource(WireMockAccountService.class)
-@TestSecurity(user = "duke", roles = { "customer" })
+@TestSecurity(user = "duke", roles = { "customer" })*/
 public class SecurityTest {
-    @Test
+    //@Test
     public void built_in_security() {
         given()
                 .when()

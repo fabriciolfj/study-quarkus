@@ -12,10 +12,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static io.restassured.RestAssured.given;
 
-@QuarkusTest
-@QuarkusTestResource(WireMockAccountService.class)
+/*@QuarkusTest
+@QuarkusTestResource(WireMockAccountService.class)*/
 public class TransactionServiceTest {
-    @Test
+    //@Test
     void testGetBalance() {
         stubFor(get(urlEqualTo("/accounts/balance/121212"))
                 .willReturn(aResponse()
@@ -30,7 +30,7 @@ public class TransactionServiceTest {
                 .statusCode(202);
     }
 
-    @Test
+    //@Test
     void testTransaction() {
         stubFor(put(urlEqualTo("/accounts/121212/100"))
                 .willReturn(aResponse()
@@ -44,7 +44,7 @@ public class TransactionServiceTest {
                 .statusCode(204);
     }
 
-    @Test
+    //@Test
     void testTimeout() {
         given()
                 .contentType(ContentType.JSON)
