@@ -74,3 +74,13 @@ mvn quarkus:add-extension -Dextensions="quarkus-smallrye-fault-tolerance"
   - colocar no diretório: resources/meta-inf
   - a opção deve ficar false: quarkus.swagger-ui.always-include=true
   - obs: para desenv funciona sem tal necessidade, apenas para pro (%prod)
+
+###### public key keycloak
+``BEGIN_STRING="-----BEGIN PUBLIC KEY-----"
+PUBLIC_KEY=`curl -s https://10.107.0.219:8443/auth/realms/bank | cut -d\" -f8`
+END_STRING="-----END PUBLIC KEY-----"
+
+echo $BEGIN_STRING
+echo $PUBLIC_KEY
+echo $END_STRING
+```
